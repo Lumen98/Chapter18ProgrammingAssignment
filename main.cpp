@@ -42,6 +42,7 @@ int main() {
             case 1: {
                 cout << "Enter bead material: " << endl;
                 cin >> input;
+                m1.toLowerCase(input);
                 while(!validInput) {
                     for(int i = 0; i < metalNamesLength; i++) {
                         if(input == *(ptr + i))  {
@@ -55,6 +56,7 @@ int main() {
                     }
                     cout << input << " is not a metal we carry...try again. " << endl;
                     cin >> input;
+                    m1.toLowerCase(input);
                 }
                 validInput = false;
                 l1.appendList(input);
@@ -63,10 +65,10 @@ int main() {
             case 2: {
                 cout << "Enter bead material: " << endl;
                 cin >> input;
+                m1.toLowerCase(input);
                 while(!validInput) {
                     for(int i = 0; i < metalNamesLength; i++) {
-                        int result = input.compare(*(ptr + i));
-                        if(result == 0)  {
+                        if(input == *(ptr + i))  {
                             //this means strings are the same
                             validInput = true;
                             break;
@@ -77,6 +79,7 @@ int main() {
                     }
                     cout << input << " is not a metal we carry...try again. " << endl;
                     cin >> input;
+                    m1.toLowerCase(input);
                 }
                 validInput = false;
                 cout << "Enter Insert Position: " << endl;
@@ -95,11 +98,14 @@ int main() {
                 break;
             }
             case 4: {
-
+                l1.display();
                 break;
             }
             case 5: {
-
+                cout << "Enter color to search for: " << endl;
+                cin >> input;
+                m1.toLowerCase(input);
+                l1.searchList(input);
                 break;
             }
             case 6: {

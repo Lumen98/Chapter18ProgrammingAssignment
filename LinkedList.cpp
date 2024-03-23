@@ -23,14 +23,15 @@ void LinkedList::appendList(string& str) {
     Node* tempNode = head;
     while(tempNode->next != nullptr) {
         tempNode = tempNode->next;
-        index++;
     }
+    index++;
     tempNode->next = newNode;
     tail = newNode;
     cout << "Thank you - a " << str << " bead has been added to your necklace at position " << index << "." << endl;
 }
 
 void LinkedList::insertList(string& str, int& num) {
+    int position = 0;
     try {
         if(head == nullptr) {
             throw runtime_error("");
@@ -39,7 +40,7 @@ void LinkedList::insertList(string& str, int& num) {
         Node* leftNode = head;
         Node* rightNode = head;
         while(leftNode->next != nullptr) {
-            if(num == index) {
+            if(num == position) {
                 rightNode = leftNode->next;
                 leftNode->next = newNode;
                 newNode->next = rightNode;
@@ -47,12 +48,12 @@ void LinkedList::insertList(string& str, int& num) {
             }
             leftNode = leftNode->next;
             rightNode = rightNode->next;
-            index++;
+            position++;
         }
-        if(num > index) {
+        if(num > position) {
             throw runtime_error("");
         }
-        cout << "Thank you - a " << str << " bead has been inserted at position " << index  << "." << endl;
+        cout << "Thank you - a " << str << " bead has been inserted at position " << position  << "." << endl;
     }
     catch(const runtime_error& e) {
         cout << "I’m sorry but bead position " << num << " does not exist." << endl;
@@ -60,20 +61,66 @@ void LinkedList::insertList(string& str, int& num) {
 
 }
 
-void LinkedList::deleteList(Node*node) {
+void LinkedList::deleteList(int num) {
+    try {
+        if(head == nullptr) {
+            throw runtime_error("");
+        }
+        Node* leftNode = head;
+        Node* rightNode = head;
+        while(leftNode->next != nullptr) {
 
-}
 
-void LinkedList::display(Node*node) {
 
-    while(node != NULL) {
-        cout << node->data << endl;
-        node = node->next;
+
+        }
+        if(num > index) {
+            throw runtime_error("");
+        }
+        cout << "Node (" << num << ") has been deleted from your list. " << endl;
+    }
+    catch(const runtime_error& e) {
+        cout << "I’m sorry but node (" << num << ") does not exist." << endl;
     }
 
 }
 
-void LinkedList::searchList(Node*node) {
+void LinkedList::display() {
+    if(head == nullptr) {
+        cout << "The list is empty. " << endl;
+        return;
+    }
+    Node* iterator = head;
+    int position = 0;
+    while(iterator->next != nullptr) {
+        cout << "(" << position << ") " << iterator->data << endl;
+        iterator = iterator->next;
+        position++;
+    }
+    cout << "(" << position << ") " << iterator->data << endl;
+}
+
+void LinkedList::searchList(string str) {
+    if(head == nullptr) {
+        cout << "The list is empty, there is nothing to search for. " << endl;
+        return;
+    }
+    Node* iterator = head;
+    int position = 0;
+    while(iterator->next != nullptr) {
+        if(iterator->data == str) {
+            cout << "There is a " << str << " bead at position (" << position << ") " << endl;
+            return;
+        }
+
+        iterator = iterator->next;
+        position++;
+    }
+    if(iterator->data == str) {
+        cout << "There is a " << str << " bead at position (" << position << ") " << endl;
+        return;
+    }
+    cout << str << " was not found anywhere. " << endl;
 
 }
 

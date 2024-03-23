@@ -15,9 +15,9 @@ public:
     LinkedList();
     void appendList(string& str);
     void insertList(string& str, int& num);
-    void deleteList(Node*node);
-    void display(Node*node);
-    void searchList(Node*node);
+    void deleteList(int num);
+    void display();
+    void searchList(string str);
 
 };
 

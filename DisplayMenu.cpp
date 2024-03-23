@@ -4,6 +4,7 @@
 
 #include "DisplayMenu.h"
 #include <iostream>
+#include <cctype>
 using namespace std;
 //separated this for organization
 void DisplayMenu::displayMenuFirstMsg() {
@@ -24,4 +25,10 @@ void DisplayMenu::displayMenuAfterMsg() {
     cout << "**** LinkedList Menu ****" << endl;
     cout << "Please Enter Your Menu Choice: ";
     cout << endl;
+}
+
+void DisplayMenu::toLowerCase(string& str) {
+    for(int i = 0; i < str.length(); i++) {
+        str[i] = tolower(str[i]);
+    }
 }
