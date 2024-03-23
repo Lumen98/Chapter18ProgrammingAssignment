@@ -21,6 +21,7 @@ void LinkedList::appendList(string& str) {
         return;
     }
 
+
     Node* tempNode = head;
     while(tempNode->next != nullptr) {
         tempNode = tempNode->next;
