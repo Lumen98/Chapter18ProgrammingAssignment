@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "DisplayMenu.h"
+#include "LinkedList.h"
 #include <iomanip>
 #include <limits>
 #include <string.h>
@@ -10,15 +11,18 @@ using namespace std;
 int main() {
     int menuChoice; //make a menuchoice var
     DisplayMenu m1; //create new objects
+    LinkedList l1;
     int menuCtr = 0;
 
     string metalNames[] = {"turquoise", "coral", "gold", "copper"};
     int metalNamesLength = sizeof(metalNames) / sizeof(metalNames[0]);
     string *ptr = metalNames;
+    bool validInput = false;
 
     do {
         if(menuCtr == 0) {
             m1.displayMenuFirstMsg();
+            menuCtr++;
         }
         else {
             m1.displayMenuAfterMsg();
@@ -26,23 +30,44 @@ int main() {
         cin >> menuChoice; //get the user's menu choice
         //switch to handle the user's choice.
         string input = "";
+        int input2;
         switch (menuChoice) {
             case 1: {
                 cout << "Enter bead material: " << endl;
                 cin >> input;
-                for(int i = 0; i < metalNamesLength; i++) {
-                    int result = input.compare(*(ptr + i));
-                    if(result == 0)  {
-                        //this means strings are the same
+                while(!validInput) {
+                    for(int i = 0; i < metalNamesLength; i++) {
+                        int result = input.compare(*(ptr + i));
+                        if(result == 0)  {
+                            //this means strings are the same
+                            validInput = true;
+                            break;
+                        }
                     }
-
+                    cout << input << " is not a metal we carry...try again. " << endl;
+                    cin >> input;
                 }
-
-
+                l1.appendList(input);
                 break;
             }
             case 2: {
-
+                cout << "Enter bead material: " << endl;
+                cin >> input;
+                while(!validInput) {
+                    for(int i = 0; i < metalNamesLength; i++) {
+                        int result = input.compare(*(ptr + i));
+                        if(result == 0)  {
+                            //this means strings are the same
+                            validInput = true;
+                            break;
+                        }
+                    }
+                    cout << input << " is not a metal we carry...try again. " << endl;
+                    cin >> input;
+                }
+                cout << "Enter Insert Position: " << endl;
+                cin >> input2;
+                l1.insertList(input,input2);
                 break;
             }
 

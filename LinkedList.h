@@ -9,10 +9,12 @@
 class LinkedList {
 private:
     Node* head;
+    Node* tail;
+    int index;
 public:
     LinkedList();
-    void appendList(Node*node);
-    void insertList(Node*node);
+    void appendList(string& str);
+    void insertList(string& str, int& num);
     void deleteList(Node*node);
     void display(Node*node);
     void searchList(Node*node);
