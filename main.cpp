@@ -27,7 +27,14 @@ int main() {
         else {
             m1.displayMenuAfterMsg();
         }
-        cin >> menuChoice; //get the user's menu choice
+
+        //get the user's menu choice
+        while(!(cin >> menuChoice)) {
+            cin.clear();
+            cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
+            cout << "Enter a number only please. " << endl;
+        }
+
         //switch to handle the user's choice.
         string input = "";
         int input2;
@@ -37,16 +44,19 @@ int main() {
                 cin >> input;
                 while(!validInput) {
                     for(int i = 0; i < metalNamesLength; i++) {
-                        int result = input.compare(*(ptr + i));
-                        if(result == 0)  {
+                        if(input == *(ptr + i))  {
                             //this means strings are the same
                             validInput = true;
                             break;
                         }
                     }
+                    if(validInput == true) {
+                        break;
+                    }
                     cout << input << " is not a metal we carry...try again. " << endl;
                     cin >> input;
                 }
+                validInput = false;
                 l1.appendList(input);
                 break;
             }
@@ -62,11 +72,20 @@ int main() {
                             break;
                         }
                     }
+                    if(validInput == true) {
+                        break;
+                    }
                     cout << input << " is not a metal we carry...try again. " << endl;
                     cin >> input;
                 }
+                validInput = false;
                 cout << "Enter Insert Position: " << endl;
-                cin >> input2;
+
+                while(!(cin >> input2)) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
+                    cout << "Enter a number only please. " << endl;
+                }
                 l1.insertList(input,input2);
                 break;
             }

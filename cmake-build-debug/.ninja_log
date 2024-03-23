@@ -1,0 +1,15 @@
+# ninja log v5
+4	48	1711177329019704815	build.ninja	f8114b05ef1ded1e
+0	3030	1711177332050082717	CMakeFiles/Chapter19ProgrammingAssignment.dir/Node.cpp.o	1df6419b2814e34d
+0	3041	1711177332063638274	CMakeFiles/Chapter19ProgrammingAssignment.dir/DisplayMenu.cpp.o	763e34a2a30cb30f
+0	3046	1711177332069858569	CMakeFiles/Chapter19ProgrammingAssignment.dir/main.cpp.o	4f0028b1338cce26
+2	348	1711177397259406100	CMakeFiles/Chapter19ProgrammingAssignment.dir/LinkedList.cpp.o	bc54b8d05f39b4a8
+348	1957	1711177398873360268	Chapter19ProgrammingAssignment	ff8d6f0eac23acfc
+2	572	1711220823076676203	CMakeFiles/Chapter19ProgrammingAssignment.dir/main.cpp.o	4f0028b1338cce26
+572	686	1711220823191072968	Chapter19ProgrammingAssignment	ff8d6f0eac23acfc
+3	351	1711220941403572082	CMakeFiles/Chapter19ProgrammingAssignment.dir/main.cpp.o	4f0028b1338cce26
+351	378	1711220941430937421	Chapter19ProgrammingAssignment	ff8d6f0eac23acfc
+2	509	1711221171508367244	CMakeFiles/Chapter19ProgrammingAssignment.dir/main.cpp.o	4f0028b1338cce26
+509	598	1711221171598678856	Chapter19ProgrammingAssignment	ff8d6f0eac23acfc
+2	494	1711221846470217608	CMakeFiles/Chapter19ProgrammingAssignment.dir/LinkedList.cpp.o	bc54b8d05f39b4a8
+494	581	1711221846557906588	Chapter19ProgrammingAssignment	ff8d6f0eac23acfc

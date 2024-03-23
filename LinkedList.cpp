@@ -3,7 +3,6 @@
 //
 
 #include "LinkedList.h"
-#include "Node.cpp"
 #include <iostream>
 using namespace std;
 
@@ -21,7 +20,6 @@ void LinkedList::appendList(string& str) {
         return;
     }
 
-
     Node* tempNode = head;
     while(tempNode->next != nullptr) {
         tempNode = tempNode->next;
@@ -33,18 +31,32 @@ void LinkedList::appendList(string& str) {
 }
 
 void LinkedList::insertList(string& str, int& num) {
-    Node* newNode = new Node(str);
-    Node* tempNode = head;
-    while(tempNode->next != nullptr) {
-        if(num == index) {
-            tempNode->next = newNode;
-            break;
+    try {
+        if(head == nullptr) {
+            throw runtime_error("");
         }
-        tempNode = tempNode->next;
-        index++;
+        Node* newNode = new Node(str);
+        Node* leftNode = head;
+        Node* rightNode = head;
+        while(leftNode->next != nullptr) {
+            if(num == index) {
+                rightNode = leftNode->next;
+                leftNode->next = newNode;
+                newNode->next = rightNode;
+                break;
+            }
+            leftNode = leftNode->next;
+            rightNode = rightNode->next;
+            index++;
+        }
+        if(num > index) {
+            throw runtime_error("");
+        }
+        cout << "Thank you - a " << str << " bead has been inserted at position " << index  << "." << endl;
     }
-
-
+    catch(const runtime_error& e) {
+        cout << "I’m sorry but bead position " << num << " does not exist." << endl;
+    }
 
 }
 
