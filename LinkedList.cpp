@@ -36,12 +36,19 @@ void LinkedList::insertList(string& str, int& num) {
         if(head == nullptr) {
             throw runtime_error("");
         }
+
         Node* newNode = new Node(str);
         Node* leftNode = head;
         Node* rightNode = head;
+        if(num == 0) {
+            head = newNode;
+            newNode->next = leftNode;
+            cout << "Thank you - a " << str << " bead has been inserted at position " << position  << "." << endl;
+            return;
+        }
         while(leftNode->next != nullptr) {
             if(num == position) {
-                rightNode = leftNode->next;
+                rightNode = leftNode->next; //null
                 leftNode->next = newNode;
                 newNode->next = rightNode;
                 break;
