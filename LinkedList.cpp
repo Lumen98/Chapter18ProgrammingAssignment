@@ -31,7 +31,7 @@ void LinkedList::appendList(string& str) {
 }
 
 void LinkedList::insertList(string& str, int& num) {
-    int position = 0;
+    int position = 1;
     try {
         if(head == nullptr) {
             throw runtime_error("");
@@ -43,34 +43,42 @@ void LinkedList::insertList(string& str, int& num) {
         if(num == 0) {
             head = newNode;
             newNode->next = leftNode;
-            cout << "Thank you - a " << str << " bead has been inserted at position " << position  << "." << endl;
+            cout << "Thank you - a " << str << " bead has been inserted at position " << num  << "." << endl;
             return;
         }
 
+        //when theres only one node, itll never enter the while loop
         while(leftNode->next != nullptr) {
             if(num == position) {
                 rightNode = leftNode->next; //null
                 leftNode->next = newNode;
                 newNode->next = rightNode;
+                index++;
                 break;
             }
             leftNode = leftNode->next;
             rightNode = rightNode->next;
             position++;
             if(leftNode->next == nullptr && num == position) {
-                position++;
-                leftNode = newNode;
+                leftNode->next = newNode;
                 cout << "Thank you - a " << str << " bead has been inserted at position " << position  << "." << endl;
                 return;
             }
         }
+
+        if(leftNode->next == nullptr && num == position) {
+            leftNode->next = newNode;
+            cout << "Thank you - a " << str << " bead has been inserted at position " << position  << "." << endl;
+            return;
+        }
+
         if(num > position) {
             throw runtime_error("");
         }
         cout << "Thank you - a " << str << " bead has been inserted at position " << position  << "." << endl;
     }
     catch(const runtime_error& e) {
-        cout << "I’m sorry but bead position " << num << " does not exist." << endl;
+        cout << "I am sorry but bead position " << num << " does not exist." << endl;
     }
 
 }
