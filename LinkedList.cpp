@@ -46,6 +46,7 @@ void LinkedList::insertList(string& str, int& num) {
             cout << "Thank you - a " << str << " bead has been inserted at position " << position  << "." << endl;
             return;
         }
+
         while(leftNode->next != nullptr) {
             if(num == position) {
                 rightNode = leftNode->next; //null
@@ -56,6 +57,12 @@ void LinkedList::insertList(string& str, int& num) {
             leftNode = leftNode->next;
             rightNode = rightNode->next;
             position++;
+            if(leftNode->next == nullptr && num == position) {
+                position++;
+                leftNode = newNode;
+                cout << "Thank you - a " << str << " bead has been inserted at position " << position  << "." << endl;
+                return;
+            }
         }
         if(num > position) {
             throw runtime_error("");
