@@ -29,8 +29,10 @@ void DisplayMenu::displayMenuAfterMsg() {
     cout << endl;
 }
 
+
 void DisplayMenu::toLowerCase(string &str) {
     for (int i = 0; i < str.length(); i++) {
+        //iterate through each char and use tolower method
         str[i] = tolower(str[i]);
     }
 }

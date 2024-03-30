@@ -1,6 +1,6 @@
 //
 // Created by Kareem Nabulsi on 3/21/24.
-//
+//node class
 #include <iostream>
 
 using namespace std;

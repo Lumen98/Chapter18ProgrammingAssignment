@@ -135,9 +135,11 @@ int LinkedList::deleteNode(int num) {
     if (head == nullptr) {
         return -1;
     }
+    //create 2 pointer nodes
     Node *leftNode = head;
     Node *rightNode = head;
 
+    //if deleting first node
     if (num == 0) {
         delete leftNode;
         head = leftNode->next;
@@ -145,19 +147,23 @@ int LinkedList::deleteNode(int num) {
         return num;
     }
 
+
     while (leftNode->next != nullptr) {
+        //iterate right node 1 furthur than left node
         if (position == 1) {
             rightNode = rightNode->next;
         } else {
             rightNode = rightNode->next;
             leftNode = leftNode->next;
         }
+        //if we are deleting a node on the end:
         if (rightNode->next == nullptr && num == position) {
             delete rightNode;
             leftNode->next = nullptr;
             index--;
             return num;
         }
+        //if deleteing a middle node:
         if (num == position) {
             leftNode->next = rightNode->next;
             delete rightNode;
@@ -175,12 +181,14 @@ int LinkedList::deleteNode(int num) {
 }
 
 void LinkedList::display() {
+    //if list is empty
     if (head == nullptr) {
         cout << "The list is empty. " << endl;
         return;
     }
     Node *iterator = head;
     int position = 0;
+    //iterate through linked list
     while (iterator->next != nullptr) {
         cout << "(" << position << ") " << iterator->data << endl;
         iterator = iterator->next;
@@ -197,14 +205,16 @@ void LinkedList::searchList(string str) {
     Node *iterator = head;
     int position = 0;
     while (iterator->next != nullptr) {
+        //if target is found:
         if (iterator->data == str) {
             cout << "There is a " << str << " bead at position (" << position << ") " << endl;
             return;
         }
-
+        //if target isnt found, iterate
         iterator = iterator->next;
         position++;
     }
+    //check last node
     if (iterator->data == str) {
         cout << "There is a " << str << " bead at position (" << position << ") " << endl;
         return;
