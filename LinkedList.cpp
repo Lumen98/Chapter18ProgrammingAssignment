@@ -33,6 +33,7 @@ void LinkedList::appendList(string &str) {
         cout << str << " is not a metal we carry...try again. " << endl;
         return;
     }
+
     //create new node with string input value
     Node *newNode = new Node(str);
     //if list is empty
