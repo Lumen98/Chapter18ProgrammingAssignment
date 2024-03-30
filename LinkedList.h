@@ -4,19 +4,25 @@
 
 #ifndef CHAPTER19PROGRAMMINGASSIGNMENT_LINKEDLIST_H
 #define CHAPTER19PROGRAMMINGASSIGNMENT_LINKEDLIST_H
+
 #include "Node.cpp"
+#include <iostream>
 
 class LinkedList {
 private:
-    Node* head;
-    Node* tail;
+    Node *head;
     int index;
 public:
     LinkedList();
-    void appendList(string& str);
-    int insertList(string& str, int& num);
+
+    void appendList(string &str);
+
+    int insertList(string &str, int &num);
+
     int deleteNode(int num);
+
     void display();
+
     void searchList(string str);
 
 };
