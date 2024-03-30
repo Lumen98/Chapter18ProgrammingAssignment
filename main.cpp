@@ -94,7 +94,13 @@ int main() {
             }
 
             case 3: {
-
+                cout << "What bead position do you wish to delete? " << endl;
+                while(!(cin >> input2)) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
+                    cout << "Enter a number only please. " << endl;
+                }
+                l1.deleteNode(input2);
                 break;
             }
             case 4: {

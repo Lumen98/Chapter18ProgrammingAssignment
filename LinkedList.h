@@ -14,8 +14,8 @@ private:
 public:
     LinkedList();
     void appendList(string& str);
-    void insertList(string& str, int& num);
-    void deleteList(int num);
+    int insertList(string& str, int& num);
+    int deleteNode(int num);
     void display();
     void searchList(string str);
 
