@@ -137,6 +137,7 @@ int LinkedList::deleteNode(int num) {
         cout << "I’m sorry but node (" << num << ") does not exist." << endl;
     }
 
+
 }
 
 void LinkedList::display() {
