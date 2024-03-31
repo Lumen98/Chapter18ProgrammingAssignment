@@ -14,6 +14,7 @@ private:
     int index;
 public:
     LinkedList();
+    ~LinkedList();
 
     void appendList(string &str);
 

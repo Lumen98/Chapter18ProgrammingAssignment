@@ -12,6 +12,16 @@ LinkedList::LinkedList() {
     index = 0;
 }
 
+LinkedList::~LinkedList() {
+    Node* iterator = head;
+    while (iterator != nullptr) {
+        Node* nextNode = iterator->next;
+        delete iterator;
+        iterator = nextNode;
+    }
+    head = nullptr;
+}
+
 void LinkedList::appendList(string &str) {
     //high level validation
     bool validInput = false;
